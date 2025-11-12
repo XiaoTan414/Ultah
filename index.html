@@ -125,12 +125,22 @@
     <p>Kamu bukan cuma alasan aku tersenyum,<br>tapi juga alasan aku semangat tiap hari 💙</p>
     <p>If every second with you could be saved,<br>maybe I would have time forever 🥲💙</p>
 
-    <audio controls>
+    <audio id="bg-music" controls>
       <source src="song.mp3" type="audio/mpeg">
       Browser kamu tidak mendukung pemutar musik.
     </audio>
 
     <footer>© Mawll — Made with ❤️ for you</footer>
   </div>
+
+  <script>
+    // memastikan musik siap dimainkan saat user interaksi
+    document.addEventListener('click', function() {
+      const audio = document.getElementById('bg-music');
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    });
+  </script>
 </body>
 </html>
