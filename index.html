@@ -134,6 +134,70 @@
       to { opacity: 1; }
     }
 
+    /* Tombol pesan */
+    .msg-btn {
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    .msg-btn:hover {
+      background: #fff;
+      color: #00a88f;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    /* Modal pop-up */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+      animation: popIn 0.5s ease-in-out;
+    }
+
+    .modal-content h2 {
+      color: #00ffcc;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-weight: bold;
+    }
+
     audio {
       margin-top: 20px;
       outline: none;
@@ -141,32 +205,36 @@
   </style>
 </head>
 <body>
-  <!-- Foto -->
   <div class="photo">
     <img src="image.jpg" alt="Foto Sayang">
   </div>
 
-  <!-- Pesan Ucapan -->
   <h1 id="mainText">Happy birthday sayang ❤️</h1>
   <p id="subText">May you always be blessed with good fortune and happiness!🫶🏻 Mawll always love you🫶🏻</p>
 
-  <!-- Musik -->
+  <button class="msg-btn" id="openMsg">💌 Klik untuk baca pesan ini</button>
+
   <audio controls autoplay loop>
     <source src="song.mp3" type="audio/mpeg">
     Browser kamu tidak mendukung audio.
   </audio>
 
-  <!-- Animasi balon -->
   <div id="balloon-container"></div>
-
-  <!-- Kue ulang tahun -->
   <div class="cake"></div>
+
+  <!-- Modal -->
+  <div class="modal" id="msgModal">
+    <div class="modal-content">
+      <button class="close" id="closeModal">&times;</button>
+      <h2>Pesan untuk Kamu 💌</h2>
+      <p>"Kamu bukan cuma alasan aku tersenyum, tapi juga alasan aku semangat tiap hari."</p>
+    </div>
+  </div>
 
   <script>
     // Pesan bergantian setiap 5 detik
     const messages = [
       { title: "Happy birthday sayang ❤️", text: "May you always be blessed with good fortune and happiness!🫶🏻 Mawll always love you🫶🏻" },
-      { title: "Kamu alasan aku tersenyum 😘", text: "Kamu juga alasan aku semangat tiap hari 💙" },
       { title: "If every second with you could be saved 🥲💙", text: "Maybe I would have time forever with you 💞" }
     ];
 
@@ -196,6 +264,15 @@
       balloon.style.animationDelay = Math.random() * 5 + "s";
       balloonContainer.appendChild(balloon);
     }
+
+    // Pop-up pesan
+    const modal = document.getElementById("msgModal");
+    const openBtn = document.getElementById("openMsg");
+    const closeBtn = document.getElementById("closeModal");
+
+    openBtn.onclick = () => modal.style.display = "flex";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
   </script>
 </body>
 </html>
