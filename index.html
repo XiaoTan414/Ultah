@@ -1,271 +1,72 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kartu Ucapan Ulang Tahun — Nuansa Cowok</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Happy Birthday Sayang ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b0f14; /* very dark */
-      --card:#0f1720; /* charcoal */
-      --accent:#1fbf8a; /* teal accent */
-      --accent-2:#c99a5b; /* warm bronze */
-      --muted:#9aa5b1;
-      --radius:14px;
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #0a0f17, #121c27);
+      color: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Roboto,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071018);display:flex;align-items:center;justify-content:center;padding:28px;color:var(--muted)}.container{width:100%;max-width:980px;display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start}
-
-/* CARD PREVIEW */
-.card{
-  width:620px;min-height:360px;background:linear-gradient(180deg,var(--card),#09121a);border-radius:20px;padding:28px;box-shadow:0 18px 40px rgba(2,6,23,0.6);position:relative;overflow:hidden;color:white;display:flex;flex-direction:column;justify-content:space-between
-}
-
-.badge{
-  display:inline-flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04)
-}
-.initials{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),#7b5a2f);display:flex;align-items:center;justify-content:center;font-family:Montserrat,serif;font-weight:700;color:#071018;font-size:22px}
-
-.top-row{display:flex;justify-content:space-between;align-items:center}
-.title{font-family:Montserrat,serif;font-size:28px;color:var(--accent);margin-left:8px}
-.subtitle{font-size:13px;color:var(--muted);margin-top:6px}
-
-.message{margin-top:18px;font-size:18px;color:#e6eef0;line-height:1.4}
-
-.decor{
-  position:absolute;right:-80px;top:-60px;width:300px;height:300px;transform:rotate(22deg);opacity:0.06;background:radial-gradient(circle at 30% 30%,var(--accent),transparent 20%), radial-gradient(circle at 70% 70%,var(--accent-2),transparent 18%);
-  border-radius:50%;
-}
-
-.footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-.age{font-size:48px;font-weight:700;color:var(--accent-2);font-family:Montserrat,serif}
-.meta{font-size:13px;color:var(--muted)}
-
-/* CONTROLS */
-.controls{background:#0b1116;border-radius:12px;padding:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-.controls h3{margin:0 0 12px 0;font-size:16px;color:var(--accent)}
-.field{display:flex;flex-direction:column;margin-bottom:10px}
-label{font-size:13px;color:var(--muted);margin-bottom:6px}
-input[type=text], textarea, select{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);font-size:14px}
-textarea{min-height:100px;resize:vertical}
-.row{display:flex;gap:8px}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;border:none;background:var(--accent);color:#071018;font-weight:700;cursor:pointer}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-.preset-colors{display:flex;gap:8px;margin-top:8px}
-.sw{width:36px;height:36px;border-radius:8px;border:2px solid rgba(255,255,255,0.04);cursor:pointer}
-
-footer.hint{font-size:13px;color:var(--muted);margin-top:10px}
-
-@media (max-width:980px){.container{grid-template-columns:1fr;max-width:720px}.card{width:100%;min-height:320px}}
-
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+    h1 {
+      color: #00ffc6;
+      margin-bottom: 10px;
+      font-size: 1.8em;
+    }
+    p {
+      color: #d1d1d1;
+      line-height: 1.6;
+      font-size: 1em;
+      margin-bottom: 12px;
+    }
+    audio {
+      width: 100%;
+      margin-top: 15px;
+      outline: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card" id="cardPreview">
-      <div class="decor"></div>
-      <div>
-        <div class="top-row">
-          <div style="display:flex;align-items:center">
-            <div class="badge">
-              <div class="initials" id="logoText">JS</div>
-              <div>
-                <div class="title" id="cardTitle">Selamat Ulang Tahun, Bro</div>
-                <div class="subtitle" id="cardSubtitle">Semoga tahun ini penuh kemenangan & commit yang mulus</div>
-              </div>
-            </div>
-          </div><div style="text-align:right">
-        <div class="meta" id="cardDate">12 Nov 2025</div>
-        <div class="meta" id="cardFrom">— Dari, Tim</div>
-      </div>
+  <div class="card">
+    <div class="photo">
+      <img src="image.jpg" alt="Foto kamu" onerror="this.src='https://dummyimage.com/600x400/222/fff&text=Foto+tidak+tersedia'">
     </div>
+    <h1>Happy birthday sayang ❤️</h1>
+    <p>May you always be blessed with good fortune and happiness!🫶🏻<br>
+    Mawll always love you🫶🏻</p>
+    <p>Kamu bukan cuma alasan aku tersenyum,<br>
+    tapi juga alasan aku semangat tiap hari 💙</p>
+    <p>If every second with you could be saved,<br>
+    maybe I would have time forever 🥲💙</p>
 
-    <div class="message" id="cardMessage">Hari ini saatnya nge-celebrate segala progress — baik bug yang terpecahkan maupun milestone yang diraih. Keep shipping, stay legendary.</div>
+    <audio controls>
+      <source src="song.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung pemutar musik.
+    </audio>
   </div>
-
-  <div class="footer">
-    <div>
-      <div class="meta">Usia</div>
-      <div class="age" id="cardAge">29</div>
-    </div>
-    <div style="text-align:right">
-      <div class="meta">Nggak perlu kata-kata panjang — cukup hadir dan ngopi bareng.</div>
-    </div>
-  </div>
-</div>
-
-<div class="controls">
-  <h3>Personalisasi (nuansa cowok)</h3>
-
-  <div class="field">
-    <label>Nama / Judul</label>
-    <input id="inputName" type="text" value="Selamat Ulang Tahun, Bro" />
-  </div>
-
-  <div class="field">
-    <label>Pesan utama</label>
-    <textarea id="inputMessage">Hari ini saatnya nge-celebrate segala progress — baik bug yang terpecahkan maupun milestone yang diraih. Keep shipping, stay legendary.</textarea>
-  </div>
-
-  <div class="row" style="margin-bottom:10px">
-    <div style="flex:1" class="field">
-      <label>Inisial / Monogram (maks 3)</label>
-      <input id="inputLogo" type="text" maxlength="3" value="JS" />
-    </div>
-    <div style="width:120px" class="field">
-      <label>Usia</label>
-      <input id="inputAge" type="text" value="29" />
-    </div>
-  </div>
-
-  <div class="field">
-    <label>Nama pengirim (tanda tangan)</label>
-    <input id="inputFrom" type="text" value="Dari, Tim" />
-  </div>
-
-  <div class="field">
-    <label>Warna aksen</label>
-    <div class="preset-colors">
-      <div class="sw" data-color="#1fbf8a" style="background:#1fbf8a"></div>
-      <div class="sw" data-color="#c99a5b" style="background:#c99a5b"></div>
-      <div class="sw" data-color="#6aa0ff" style="background:#6aa0ff"></div>
-      <div class="sw" data-color="#8b5cf6" style="background:#8b5cf6"></div>
-    </div>
-  </div>
-
-  <div style="display:flex;gap:8px;margin-top:12px">
-    <button class="btn" id="applyBtn">Terapkan</button>
-    <button class="btn ghost" id="downloadBtn">Unduh PNG</button>
-    <button class="btn ghost" id="saveHtmlBtn">Simpan HTML</button>
-  </div>
-
-  <div class="hint">Tip: pilih inisial, sesuaikan usia, lalu klik <strong>Unduh PNG</strong> untuk hasil yang siap share via chat.</div>
-</div>
-
-  </div>  <script>
-    // elemen
-    const inputName = document.getElementById('inputName');
-    const inputMessage = document.getElementById('inputMessage');
-    const inputLogo = document.getElementById('inputLogo');
-    const inputFrom = document.getElementById('inputFrom');
-    const inputAge = document.getElementById('inputAge');
-
-    const cardTitle = document.getElementById('cardTitle');
-    const cardSubtitle = document.getElementById('cardSubtitle');
-    const cardMessage = document.getElementById('cardMessage');
-    const logoText = document.getElementById('logoText');
-    const cardFrom = document.getElementById('cardFrom');
-    const cardAge = document.getElementById('cardAge');
-    const cardDate = document.getElementById('cardDate');
-    const cardPreview = document.getElementById('cardPreview');
-
-    // set tanggal otomatis (format: 12 Nov 2025)
-    const today = new Date();
-    const opts = {day:'2-digit', month:'short', year:'numeric'};
-    cardDate.textContent = today.toLocaleDateString('id-ID', opts);
-
-    // apply
-    document.getElementById('applyBtn').addEventListener('click', ()=>{
-      cardTitle.textContent = inputName.value || 'Selamat Ulang Tahun';
-      cardMessage.textContent = inputMessage.value || '';
-      logoText.textContent = (inputLogo.value || 'JS').toUpperCase();
-      cardFrom.textContent = '— ' + (inputFrom.value || 'Dari, Tim');
-      cardAge.textContent = inputAge.value || '—';
-    });
-
-    // warna swatches
-    document.querySelectorAll('.sw').forEach(s => s.addEventListener('click', ()=>{
-      document.querySelectorAll('.sw').forEach(x=>x.style.outline='');
-      s.style.outline = '3px solid rgba(255,255,255,0.06)';
-      const c = s.dataset.color;
-      document.documentElement.style.setProperty('--accent', c);
-    }));
-
-    // download PNG (simplified render)
-    document.getElementById('downloadBtn').addEventListener('click', ()=>{
-      const scale = 3;
-      const w = cardPreview.offsetWidth;
-      const h = cardPreview.offsetHeight;
-      const canvas = document.createElement('canvas');
-      canvas.width = w * scale; canvas.height = h * scale;
-      const ctx = canvas.getContext('2d');
-
-      // background
-      ctx.fillStyle = '#071018'; ctx.fillRect(0,0,canvas.width,canvas.height);
-
-      // rounded card
-      ctx.fillStyle = '#0f1720';
-      roundRect(ctx, 12*scale, 12*scale, canvas.width-24*scale, canvas.height-24*scale, 28*scale, true, false);
-
-      // initials box
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#c99a5b';
-      const boxX = 44*scale; const boxY = 40*scale; const boxSize = 128*scale;
-      roundRect(ctx, boxX, boxY, boxSize, boxSize, 18*scale, true, false);
-      ctx.fillStyle = '#071018'; ctx.font = `${48*scale}px Montserrat, serif`; ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.fillText(logoText.textContent, boxX + boxSize/2, boxY + boxSize/2);
-
-      // Title
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#1fbf8a';
-      ctx.font = `${36*scale}px Montserrat, serif`; ctx.textAlign='left'; ctx.fillText(cardTitle.textContent, (boxX + boxSize + 20*scale), (boxY + 44*scale));
-
-      // Message (wrap)
-      ctx.fillStyle = '#e6eef0'; ctx.font = `${16*scale}px Roboto, sans-serif`;
-      wrapText(ctx, cardMessage.textContent, 48*scale, (boxY + boxSize + 40*scale), canvas.width - 96*scale, 26*scale);
-
-      // Age
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#c99a5b';
-      ctx.font = `${64*scale}px Montserrat, serif`;
-      ctx.textAlign='left'; ctx.fillText(cardAge.textContent, 48*scale, canvas.height - 100*scale);
-
-      // signature
-      ctx.font = `${16*scale}px Roboto, sans-serif`;
-      ctx.textAlign='right'; ctx.fillStyle = '#9aa5b1'; ctx.fillText(cardFrom.textContent, canvas.width - 48*scale, canvas.height - 48*scale);
-
-      const link = document.createElement('a'); link.download = 'ucapan-ulang-tahun-cowok.png'; link.href = canvas.toDataURL('image/png'); link.click();
-    });
-
-    // save HTML
-    document.getElementById('saveHtmlBtn').addEventListener('click', ()=>{
-      const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'kartu-ucapan-ulang-tahun-cowok.html'; a.click(); URL.revokeObjectURL(url);
-    });
-
-    // helpers
-    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-      if (typeof radius === 'number') radius = {tl: radius, tr: radius, br: radius, bl: radius};
-      ctx.beginPath();
-      ctx.moveTo(x + radius.tl, y);
-      ctx.lineTo(x + width - radius.tr, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-      ctx.lineTo(x + width, y + height - radius.br);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
-      ctx.lineTo(x + radius.bl, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-      ctx.lineTo(x, y + radius.tl);
-      ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-      ctx.closePath();
-      if (fill) ctx.fill();
-      if (stroke) { ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.stroke(); }
-    }
-
-    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-      const words = text.split(' ');
-      let line = '';
-      for (let n = 0; n < words.length; n++) {
-        const testLine = line + words[n] + ' ';
-        const metrics = ctx.measureText(testLine);
-        const testWidth = metrics.width;
-        if (testWidth > maxWidth && n > 0) {
-          ctx.fillText(line, x, y);
-          line = words[n] + ' ';
-          y += lineHeight;
-        } else {
-          line = testLine;
-        }
-      }
-      ctx.fillText(line, x, y);
-    }
-  </script></body>
+</body>
 </html>
