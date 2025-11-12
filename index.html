@@ -9,13 +9,19 @@
     :root {
       --accent: #00ffc6;
       --dark: #0a0f17;
-      --light: #eaeaea;
+      --light: #f4f4f4;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: radial-gradient(circle at top, #16202c, var(--dark));
-      color: var(--light);
       font-family: 'Poppins', sans-serif;
+      color: var(--light);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -24,14 +30,13 @@
       position: relative;
     }
 
-    /* ======= ANIMASI BALON ======= */
+    /* === BALON === */
     .balloon {
       position: absolute;
       bottom: -150px;
       width: 50px;
       height: 70px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #ff9eb5, #ff5b77);
       animation: float 12s linear infinite;
       opacity: 0.8;
     }
@@ -50,7 +55,7 @@
       100% { transform: translateY(-120vh) rotate(360deg); }
     }
 
-    /* ======= KUE ======= */
+    /* === KUE === */
     .cake {
       position: absolute;
       bottom: 15px;
@@ -93,10 +98,10 @@
       to { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
     }
 
-    /* ======= CARD UTAMA ======= */
+    /* === KARTU UCAPAN === */
     .card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
       box-shadow: 0 0 40px rgba(0,0,0,0.5);
       padding: 25px;
@@ -106,7 +111,7 @@
       animation: fadeInUp 1.5s ease forwards;
     }
 
-    /* ======= FOTO LINGKARAN ======= */
+    /* === FOTO LINGKARAN === */
     .photo {
       position: relative;
       width: 180px;
@@ -114,7 +119,7 @@
       margin: 0 auto 20px auto;
       border-radius: 50%;
       overflow: hidden;
-      border: 5px solid gold;
+      border: 6px solid gold;
       box-shadow: 0 0 30px rgba(255,215,0,0.4);
       animation: glowFrame 2s infinite alternate;
     }
@@ -138,6 +143,7 @@
       margin-bottom: 10px;
       animation: glow 3s infinite alternate;
     }
+
     #message {
       font-size: 1em;
       line-height: 1.6;
@@ -146,6 +152,7 @@
       opacity: 0;
       transition: opacity 1s ease;
     }
+
     audio {
       width: 100%;
       margin-top: 15px;
@@ -154,6 +161,7 @@
       animation: fadeIn 2s ease forwards;
       animation-delay: 2s;
     }
+
     footer {
       margin-top: 15px;
       font-size: 0.8em;
@@ -161,7 +169,7 @@
       animation: fadeIn 3s ease forwards;
     }
 
-    /* ======= ANIMASI ======= */
+    /* === ANIMASI TEKS & GLOW === */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
@@ -175,7 +183,7 @@
       to { text-shadow: 0 0 25px var(--accent), 0 0 40px rgba(0,255,198,0.4); }
     }
 
-    /* ======= RESPONSIVE ======= */
+    /* === RESPONSIVE === */
     @media (max-width: 500px) {
       .card { padding: 18px; max-width: 90%; }
       h1 { font-size: 1.5em; }
@@ -187,19 +195,19 @@
 <body>
 
   <!-- BALON -->
-  <div class="balloon" style="left:10%; animation-delay:0s;"></div>
+  <div class="balloon" style="left:10%; background:radial-gradient(circle at 30% 30%, #ff9eb5, #ff5b77); animation-delay:0s;"></div>
   <div class="balloon" style="left:30%; background:radial-gradient(circle at 30% 30%, #9fffc3, #00e676); animation-delay:3s;"></div>
   <div class="balloon" style="left:60%; background:radial-gradient(circle at 30% 30%, #9ecbff, #007bff); animation-delay:5s;"></div>
   <div class="balloon" style="left:80%; background:radial-gradient(circle at 30% 30%, #ffc9f9, #ff6ec7); animation-delay:7s;"></div>
 
-  <!-- CARD -->
+  <!-- KARTU UCAPAN -->
   <div class="card">
     <div class="photo">
       <img src="image.jpg" alt="Foto kamu" onerror="this.src='https://dummyimage.com/400x400/1a2430/fff&text=Foto+tidak+tersedia'">
     </div>
 
     <h1>Happy birthday sayang ❤️</h1>
-    <div id="message">May you always be blessed with good fortune and happiness!🫶🏻<br>Mawll always love you🫶🏻</div>
+    <div id="message"></div>
 
     <audio id="bg-music" controls>
       <source src="song.mp3" type="audio/mpeg">
@@ -216,7 +224,7 @@
   </div>
 
   <script>
-    // Pesan bergantian otomatis
+    // Pesan berganti otomatis
     const messages = [
       "May you always be blessed with good fortune and happiness!🫶🏻<br>Mawll always love you🫶🏻",
       "Kamu bukan cuma alasan aku tersenyum,<br>tapi juga alasan aku semangat tiap hari 💙",
@@ -238,7 +246,7 @@
     showMessage();
     setInterval(showMessage, 5000);
 
-    // Auto-play musik saat interaksi
+    // Aktifkan musik saat user klik
     document.addEventListener('click', () => {
       const audio = document.getElementById('bg-music');
       if (audio.paused) audio.play().catch(()=>{});
