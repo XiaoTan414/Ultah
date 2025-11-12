@@ -1,256 +1,201 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday Sayang ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --accent: #00ffc6;
-      --dark: #0a0f17;
-      --light: #f4f4f4;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #16202c, var(--dark));
-      font-family: 'Poppins', sans-serif;
-      color: var(--light);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow: hidden;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
+      text-align: center;
       position: relative;
     }
 
-    /* === BALON === */
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 50px;
-      height: 70px;
-      border-radius: 50%;
-      animation: float 12s linear infinite;
-      opacity: 0.8;
-    }
-    .balloon::after {
-      content: "";
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 2px;
-      height: 25px;
-      background: #aaa;
-      transform: translateX(-50%);
-    }
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-120vh) rotate(360deg); }
-    }
-
-    /* === KUE === */
-    .cake {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(to top, #4e342e, #6d4c41);
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 0 20px rgba(255, 200, 150, 0.3);
-    }
-    .candle {
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      width: 10px;
-      height: 30px;
-      background: #ffd54f;
-      border-radius: 3px;
-      transform: translateX(-50%);
-      animation: flicker 1s infinite alternate;
-    }
-    .flame {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      width: 10px;
-      height: 15px;
-      background: radial-gradient(circle, #ffcc33, #ff6600);
-      border-radius: 50%;
-      transform: translateX(-50%);
-      animation: flame 0.8s infinite alternate;
-    }
-    @keyframes flicker {
-      from { background-color: #ffe082; }
-      to { background-color: #ffd740; }
-    }
-    @keyframes flame {
-      from { transform: translateX(-50%) scale(1); opacity: 1; }
-      to { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
-    }
-
-    /* === KARTU UCAPAN === */
-    .card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
-      padding: 25px;
-      max-width: 420px;
-      text-align: center;
-      z-index: 2;
-      animation: fadeInUp 1.5s ease forwards;
-    }
-
-    /* === FOTO LINGKARAN === */
     .photo {
       position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px auto;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       overflow: hidden;
-      border: 6px solid gold;
-      box-shadow: 0 0 30px rgba(255,215,0,0.4);
-      animation: glowFrame 2s infinite alternate;
+      border: 6px solid #ffb6c1;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+      margin-bottom: 20px;
+      animation: popIn 2s ease-in-out;
     }
-    @keyframes glowFrame {
-      from { box-shadow: 0 0 20px rgba(255,215,0,0.4); }
-      to { box-shadow: 0 0 40px rgba(255,215,0,0.8); }
-    }
+
     .photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 6s ease;
     }
-    .photo:hover img {
-      transform: scale(1.1);
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     h1 {
-      color: var(--accent);
-      font-size: 1.8em;
+      font-size: 2rem;
+      color: #00ffcc;
+      text-shadow: 0 0 15px #00ffcc;
       margin-bottom: 10px;
-      animation: glow 3s infinite alternate;
+      animation: fadeIn 2s ease-in-out;
     }
 
-    #message {
-      font-size: 1em;
-      line-height: 1.6;
-      color: #d6d6d6;
-      min-height: 90px;
-      opacity: 0;
-      transition: opacity 1s ease;
+    p {
+      max-width: 90%;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #eee;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Balon animasi */
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Kue ulang tahun */
+    .cake {
+      position: absolute;
+      bottom: 30px;
+      width: 80px;
+      height: 60px;
+      background: #f8b400;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      animation: bounce 3s infinite ease-in-out;
+    }
+
+    .cake::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 20px;
+      background: #ff4d4d;
+      border-radius: 3px;
+    }
+
+    .cake::after {
+      content: '';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 8px;
+      background: radial-gradient(circle, yellow, orange);
+      border-radius: 50%;
+      animation: flicker 0.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes flicker {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
     }
 
     audio {
-      width: 100%;
-      margin-top: 15px;
+      margin-top: 20px;
       outline: none;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      animation-delay: 2s;
-    }
-
-    footer {
-      margin-top: 15px;
-      font-size: 0.8em;
-      color: #9aa;
-      animation: fadeIn 3s ease forwards;
-    }
-
-    /* === ANIMASI TEKS & GLOW === */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px var(--accent); }
-      to { text-shadow: 0 0 25px var(--accent), 0 0 40px rgba(0,255,198,0.4); }
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 500px) {
-      .card { padding: 18px; max-width: 90%; }
-      h1 { font-size: 1.5em; }
-      #message { font-size: 0.95em; }
-      .photo { width: 140px; height: 140px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- BALON -->
-  <div class="balloon" style="left:10%; background:radial-gradient(circle at 30% 30%, #ff9eb5, #ff5b77); animation-delay:0s;"></div>
-  <div class="balloon" style="left:30%; background:radial-gradient(circle at 30% 30%, #9fffc3, #00e676); animation-delay:3s;"></div>
-  <div class="balloon" style="left:60%; background:radial-gradient(circle at 30% 30%, #9ecbff, #007bff); animation-delay:5s;"></div>
-  <div class="balloon" style="left:80%; background:radial-gradient(circle at 30% 30%, #ffc9f9, #ff6ec7); animation-delay:7s;"></div>
-
-  <!-- KARTU UCAPAN -->
-  <div class="card">
-    <div class="photo">
-      <img src="image.jpg" alt="Foto kamu" onerror="this.src='https://dummyimage.com/400x400/1a2430/fff&text=Foto+tidak+tersedia'">
-    </div>
-
-    <h1>Happy birthday sayang ❤️</h1>
-    <div id="message"></div>
-
-    <audio id="bg-music" controls>
-      <source src="song.mp3" type="audio/mpeg">
-      Browser kamu tidak mendukung pemutar musik.
-    </audio>
-
-    <footer>© Mawll — Made with ❤️ for you</footer>
+  <!-- Foto -->
+  <div class="photo">
+    <img src="image.jpg" alt="Foto Sayang">
   </div>
 
-  <!-- KUE -->
-  <div class="cake">
-    <div class="candle"></div>
-    <div class="flame"></div>
-  </div>
+  <!-- Pesan Ucapan -->
+  <h1 id="mainText">Happy birthday sayang ❤️</h1>
+  <p id="subText">May you always be blessed with good fortune and happiness!🫶🏻 Mawll always love you🫶🏻</p>
+
+  <!-- Musik -->
+  <audio controls autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <!-- Animasi balon -->
+  <div id="balloon-container"></div>
+
+  <!-- Kue ulang tahun -->
+  <div class="cake"></div>
 
   <script>
-    // Pesan berganti otomatis
+    // Pesan bergantian setiap 5 detik
     const messages = [
-      "May you always be blessed with good fortune and happiness!🫶🏻<br>Mawll always love you🫶🏻",
-      "Kamu bukan cuma alasan aku tersenyum,<br>tapi juga alasan aku semangat tiap hari 💙",
-      "If every second with you could be saved,<br>maybe I would have time forever 🥲💙"
+      { title: "Happy birthday sayang ❤️", text: "May you always be blessed with good fortune and happiness!🫶🏻 Mawll always love you🫶🏻" },
+      { title: "Kamu alasan aku tersenyum 😘", text: "Kamu juga alasan aku semangat tiap hari 💙" },
+      { title: "If every second with you could be saved 🥲💙", text: "Maybe I would have time forever with you 💞" }
     ];
 
-    const messageEl = document.getElementById("message");
     let index = 0;
+    const mainText = document.getElementById("mainText");
+    const subText = document.getElementById("subText");
 
-    function showMessage() {
-      messageEl.style.opacity = 0;
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      mainText.style.opacity = 0;
+      subText.style.opacity = 0;
       setTimeout(() => {
-        messageEl.innerHTML = messages[index];
-        messageEl.style.opacity = 1;
-        index = (index + 1) % messages.length;
+        mainText.textContent = messages[index].title;
+        subText.textContent = messages[index].text;
+        mainText.style.opacity = 1;
+        subText.style.opacity = 1;
       }, 1000);
+    }, 5000);
+
+    // Balon terbang acak
+    const balloonContainer = document.getElementById("balloon-container");
+    for (let i = 0; i < 15; i++) {
+      const balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      balloon.style.animationDelay = Math.random() * 5 + "s";
+      balloonContainer.appendChild(balloon);
     }
-
-    showMessage();
-    setInterval(showMessage, 5000);
-
-    // Aktifkan musik saat user klik
-    document.addEventListener('click', () => {
-      const audio = document.getElementById('bg-music');
-      if (audio.paused) audio.play().catch(()=>{});
-    });
   </script>
 </body>
 </html>
