@@ -1,72 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Sayang ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --accent: #00ffc6;
+      --dark: #0a0f17;
+      --light: #eaeaea;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(180deg, #0a0f17, #121c27);
-      color: #eaeaea;
+      padding: 0;
+    }
+    body {
+      background: radial-gradient(circle at top, #16202c, var(--dark));
+      color: var(--light);
+      font-family: 'Poppins', sans-serif;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      text-align: center;
-      padding: 20px;
+      overflow: hidden;
     }
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 20px;
-      padding: 30px;
-      max-width: 500px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      padding: 25px;
+      max-width: 420px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    .photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(0,255,198,0.15);
+      animation: fadeIn 2s ease forwards;
     }
     .photo img {
       width: 100%;
       height: auto;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      object-fit: cover;
+      display: block;
+      transition: transform 6s ease;
+    }
+    .photo:hover img {
+      transform: scale(1.1);
     }
     h1 {
-      color: #00ffc6;
-      margin-bottom: 10px;
+      color: var(--accent);
       font-size: 1.8em;
+      margin-bottom: 10px;
+      animation: glow 3s infinite alternate;
     }
     p {
-      color: #d1d1d1;
       line-height: 1.6;
-      font-size: 1em;
       margin-bottom: 12px;
+      font-size: 1em;
+      color: #d6d6d6;
+      opacity: 0;
+      animation: fadeInText 1s ease forwards;
     }
+    p:nth-of-type(1) { animation-delay: 1s; }
+    p:nth-of-type(2) { animation-delay: 1.5s; }
+    p:nth-of-type(3) { animation-delay: 2s; }
     audio {
       width: 100%;
       margin-top: 15px;
       outline: none;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 2.5s;
+    }
+    footer {
+      margin-top: 15px;
+      font-size: 0.8em;
+      color: #9aa;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--accent); }
+      to { text-shadow: 0 0 25px var(--accent), 0 0 40px rgba(0,255,198,0.4); }
+    }
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsiveness */
+    @media (max-width: 500px) {
+      .card {
+        padding: 18px;
+        max-width: 90%;
+      }
+      h1 { font-size: 1.5em; }
+      p { font-size: 0.95em; }
     }
   </style>
 </head>
 <body>
   <div class="card">
     <div class="photo">
-      <img src="image.jpg" alt="Foto kamu" onerror="this.src='https://dummyimage.com/600x400/222/fff&text=Foto+tidak+tersedia'">
+      <img src="image.jpg" alt="Foto kamu" onerror="this.src='https://dummyimage.com/600x400/1a2430/fff&text=Foto+tidak+tersedia'">
     </div>
+
     <h1>Happy birthday sayang ❤️</h1>
-    <p>May you always be blessed with good fortune and happiness!🫶🏻<br>
-    Mawll always love you🫶🏻</p>
-    <p>Kamu bukan cuma alasan aku tersenyum,<br>
-    tapi juga alasan aku semangat tiap hari 💙</p>
-    <p>If every second with you could be saved,<br>
-    maybe I would have time forever 🥲💙</p>
+    <p>May you always be blessed with good fortune and happiness!🫶🏻<br>Mawll always love you🫶🏻</p>
+    <p>Kamu bukan cuma alasan aku tersenyum,<br>tapi juga alasan aku semangat tiap hari 💙</p>
+    <p>If every second with you could be saved,<br>maybe I would have time forever 🥲💙</p>
 
     <audio controls>
       <source src="song.mp3" type="audio/mpeg">
       Browser kamu tidak mendukung pemutar musik.
     </audio>
+
+    <footer>© Mawll — Made with ❤️ for you</footer>
   </div>
 </body>
 </html>
